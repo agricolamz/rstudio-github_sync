@@ -1,3 +1,15 @@
+#' Sync RStudio and GitHub via auto refreshe pages
+#'
+#' Takes a path vector, renders the site from Rmd files, changes .html files in the /docs subbderictory to auto refreshe pages and push it to GitHub via ssh key.
+#' @param x character vector of the languoids (can be written in lower case)
+#' @author George Moroz <agricolamz@gmail.com>
+#' @seealso \code{\link{aff.lang}}, \code{\link{country.lang}}, \code{\link{iso.lang}}, \code{\link{lat.lang}}, \code{\link{long.lang}}
+#' @examples
+#' area.lang("Adyghe")
+#' area.lang(c("Adyghe", "Aduge"))
+#' @export
+
+
 sync <- function(path, frequency = 5){
   # render site
   setwd(path)
