@@ -1,4 +1,4 @@
-# RStudio <=> Github sync via auto refreshe pages
+# RStudio → Github sync via auto refreshe pages
 During your class you write your code in RStudio and your students try to copy it from the screen projector. There is another way:
 
 * create a GitHub repository
