@@ -9,7 +9,6 @@
 #' @examples
 #' sync()
 #' sync(exceptions = "Lec_1_Course_description.html")
-#' sync(exceptions = list.files(pattern="Lec.*\\.html"))
 #' @export
 
 
@@ -32,11 +31,11 @@ sync <- function(path = getwd(), frequency = 5, exceptions = NULL){
     }
   )
   
+  # change the working directory back
+  setwd(path)
+  
   # push to github
   system(command = paste0('cd ',
          path,
          '; git add --all; mydate=`date`; git commit -m "$mydate"; git push -u origin master'))
-  
-  # change the working directory back
-  setwd(path)
-  }
+    }
