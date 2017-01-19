@@ -17,14 +17,14 @@ sync <- function(path = getwd(), frequency = 5, exceptions = NULL){
   # render site
   setwd(path)
   rmarkdown::render_site()
+  setwd(paste0(path, "/docs"))
   
   # if there are exceptions
   if (!is.null(exceptions)){
     files <- setdiff(list.files(pattern=".*\\.html"), exceptions)
-  } else {files <- list.files(pattern=".*\\.html")}
+  } else {files <- list.files(pattern="\\.html")}
 
   # add a 10 seconds auto refresh
-  setwd(paste0(path, "/docs"))
   sapply(files, function(x){
     html <- readLines(x)
     html[8] <- paste0('<meta http-equiv="refresh" content="', frequency, '"/>')
